@@ -6,6 +6,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import HomeIcon from "@mui/icons-material/Home";
 import Avatar from "@mui/material/Avatar";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const styles = {
     root: {  
@@ -14,17 +15,29 @@ const styles = {
     alignItems: "center",
     flexWrap: "wrap",
     padding: 1.5,
-  },
+    },
+    avatar: {
+      backgroundColor: "rgb(255, 0, 0)",
+    },  
 };
 
 const MovieHeader = (props) => {
   const movie = props.movie;
-
+  const movies = JSON.parse(localStorage.getItem("favourites")); 
+  const favoriteMovie = movies.find((movie) => movie.id === props.movie.id);
+  
   return (
     <Paper component="div" sx={styles.root}>
       <IconButton aria-label="go back">
         <ArrowBackIcon color="primary" fontSize="large" />
-      </IconButton>
+      </IconButton>     
+
+      {favoriteMovie ? (
+        <Avatar sx={styles.avatar}>
+          <FavoriteIcon />
+        </Avatar>
+      ) : null
+      } 
 
       <Typography variant="h4" component="h3">
         {movie.title}{"   "}
