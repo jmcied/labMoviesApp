@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react"; // , { useState, useEffect } redundant
 import PageTemplate from "../components/templateMovieListPage";
 import { getMovies } from "../api/tmdb-api";
 import { useQuery } from "react-query";
