@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PageTemplate from '../components/templateMovieListPage'
-import { getMovies } from "../api/tmdb-api";
+import { getUpcomingMovies } from "../api/tmdb-api";
 
-const HomePage = (props) => {
-  const [movies, setMovies] = useState([]);
+const UpcomingMoviesPage = (props) => {
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
   const favourites = movies.filter(m => m.favourite)
   localStorage.setItem('favourites', JSON.stringify(favourites))
 
@@ -11,22 +11,22 @@ const HomePage = (props) => {
     const updatedMovies = movies.map((m) =>
       m.id === movieId ? { ...m, favourite: true } : m
     );
-    setMovies(updatedMovies);
+    setUpcomingMovies(updatedMovies);
   };
 
   useEffect(() => {
-    getMovies().then(movies => {
-      setMovies(movies);
+    getUpcomingMovies().then(upcomingMovies => {
+      setUpcomingMovies(upcomingMovies);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <PageTemplate
-      title='Discover Movies'
-      movies={movies}
+      title='Upcoming Movies'
+      movies={upcomingMovies}
       selectFavourite={addToFavourites}
     />
   );
 };
-export default HomePage;
+export default UpcomingMoviesPageage;
