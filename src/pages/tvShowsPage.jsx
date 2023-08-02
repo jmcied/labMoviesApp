@@ -1,12 +1,12 @@
 import React from "react";
-import PageTemplate from '../components/templateMovieListPage'
+import PageTemplate from '../components/templateTvShowsListPage'
 import {getTvSeries } from "../api/tmdb-api";
-import AddtoPlaylistIcon from '../components/cardIcons/addtoPlaylist';
+import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
 
 
-const TvSeriesPage = (props) => {
+const TvShowsPage = (props) => {
   const { data, error, isLoading, isError } = useQuery("tv", getTvSeries);
 
   if (isLoading) {
@@ -20,12 +20,12 @@ const TvSeriesPage = (props) => {
 
   return (
     <PageTemplate
-      title='TV Shows'
+      title='TV Series'
       movies={tvShows}
-      action={(movie) => {
-        return  <AddtoPlaylistIcon movie={movie} />
+      action={(tvShow) => {
+        return  <AddToFavouritesIcon movie={tvShow} />
       }}
       />
   );
 };
-export default TvSeriesPage;
+export default TvShowsPage;
