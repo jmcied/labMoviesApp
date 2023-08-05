@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import PageTemplate from '../components/templateTvShowsListPage'
 import {getTvSeries } from "../api/tmdb-api";
 import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
@@ -28,4 +28,4 @@ const TvShowsPage = (props) => {
       />
   );
 };
-export default TvShowsPage;
+export default TvShowsPage; */

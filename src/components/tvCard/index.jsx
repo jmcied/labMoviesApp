@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -12,6 +12,7 @@ import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
 import img from '../../images/film-poster-placeholder.png'
+import { TVShowsContext } from "../../contexts/tvShowsContext";
 
 const styles = {
     card: { maxWidth: 345 },
@@ -21,8 +22,14 @@ const styles = {
     },
 };
 
-export default function TvCard(props) {
-    const tvShows = props.tvShows;
+export default function TvCard({tvShows, action}) {
+    const { favourites, addToFavourites } = useContext(TVShowsContext);
+
+    if (favourites.find((id) => id === movie.id)) {
+      movie.favourite = true;
+    } else {
+      movie.favourite = false
+    }
 
     return (
         <Card sx={styles.card}>
@@ -55,10 +62,10 @@ export default function TvCard(props) {
                 <IconButton aria-label="add to favorites" onClick={null}>
                     <FavoriteIcon color="primary" fontSize="large" />
                 </IconButton>
-                <Button variant="outlined" size="medium" color="primary">
+                <Button variant="outlined" size="medium" color="primary">  
                     More Info ...
                 </Button>
             </CardActions>
         </Card>
     );
-}
+} */
