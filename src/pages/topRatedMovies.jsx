@@ -3,7 +3,7 @@ import PageTemplate from '../components/templateMovieListPage'
 import { getTopRatedMovies } from "../api/tmdb-api";
 import { useQuery } from "react-query";
 import Spinner from "../components/spinner";
-import AddToPlaylistIcon from "../components/cardIcons/addToPlaylist";
+import AddToFavouritesIcon from "../components/cardIcons/addToFavourites";
 
 const TopRatedMoviesPage = (props) => {
   const { data, error, isLoading, isError } = useQuery("topRated", getTopRatedMovies);
@@ -22,7 +22,7 @@ const TopRatedMoviesPage = (props) => {
       title='Top Rated Movies'
       movies={topRatedMovies}      
       action={(movie) => {
-        return <AddToPlaylistIcon movie={movie} />
+        return <AddToFavouritesIcon movie={movie} />
       }}
     />
   );
