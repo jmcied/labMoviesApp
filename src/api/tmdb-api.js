@@ -115,6 +115,23 @@ export const getMovie = (args) => {
        });
       };
 
+
+      export const getActors = () => {
+        return fetch(
+          `https://api.themoviedb.org/3/person/popular?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1` //ToDo pagination
+        ).then((response) => {
+          if (!response.ok) {
+            throw new Error(response.json().message);
+          }
+          return response.json();
+        })
+        .catch((error) => {
+           throw error
+        });
+      };
+      
+
+
       export const getTvShows = () => {
         return fetch(
           `https://api.themoviedb.org/3/discover/tv?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1` //ToDo pagination
@@ -178,14 +195,3 @@ export const getMovie = (args) => {
           throw error
        });
       }; 
-/*
-
-ToDo Tv Series
-?? Discover... upcoming... 
-https://api.themoviedb.org/3/genre/tv/list
-
-
-ToDo Actors
-?? movies... tv? possible combination??
-https://api.themoviedb.org/3/movie/{movie_id}/credits 
-*/

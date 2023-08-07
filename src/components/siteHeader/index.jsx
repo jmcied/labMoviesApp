@@ -28,12 +28,13 @@ const SiteHeader = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   const menuOptions = [
-    { label: "Home", path: "/" },
-    { label: "Favorites", path: "/movies/favourites" }, 
-    { label: "Upcoming", path: "/movies/upcoming" },
+    { label: "Home", path: "/" },    
     { label: "Popular", path: "/movies/popular" },
     { label: "Top-Rated", path: "/movies/topRated" },
-    { label: "Must Watch", path: "/movies/mustWatch" }, 
+    { label: "Upcoming", path: "/movies/upcoming" },
+    { label: "Favorites", path: "/movies/favourites" }, 
+    { label: "Must Watch", path: "/movies/mustWatch" },
+    { label: "Actors", path: "/actors" },
     { label: "Tv Shows", path: "/tvShows" },
     { label: "Option 4", path: "/" },
   ];
