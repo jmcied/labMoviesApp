@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";
 import ActorCard from "../actorsCard/index.jsx";
+import FilterActorsCard from "../filterActorsCard/index.jsx";
 
 const styles = {
   root: {
@@ -43,21 +44,21 @@ function PageTemplate({ actors, title }) {
             ))}
           </Grid>
         </Grid>
- {/*        <Fab
+ {        <Fab
           color="secondary"
           variant="extended"
           onClick={() => setDrawerOpen(true)}
           sx={styles.fab}
         >
           Filter
-        </Fab> */}
-        {/* <Drawer
-          anchor="left"
+        </Fab> }
+        { <Drawer
+          anchor="top"
           open={drawerOpen}
           onClose={() => setDrawerOpen(false)}
         >
           <FilterActorsCard onUserInput={handleNameFilterChange} nameFilter={nameFilter} />
-        </Drawer> */}
+        </Drawer> }
       </>
     );
   }
