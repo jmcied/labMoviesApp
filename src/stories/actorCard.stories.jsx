@@ -9,15 +9,14 @@ export default {
 };
 
 export const Basic = () => {
-  return (
-    <ActorCard
-      actor={SampleActor}
+
+    <ActorCard actor={SampleActor}
     />
-  );
+  
 };
 Basic.storyName = "Default";
 
-export const Exceptional = () => {
+/* export const Exceptional = () => {
   const sampleNoPoster = { ...SampleActor, poster_path: undefined };
   return (
     <ActorCard
@@ -25,4 +24,4 @@ export const Exceptional = () => {
     />
   );
 };
-Exceptional.storyName = "exception";
+Exceptional.storyName = "exception"; */
