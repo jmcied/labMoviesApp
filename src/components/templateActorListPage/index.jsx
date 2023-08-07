@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import HeaderActorList from "../headerActorList.jsx";
+import HeaderActorList from "../headerActorList/index.jsx";
 import Grid from "@mui/material/Grid";
 import Fab from "@mui/material/Fab";
 import Drawer from "@mui/material/Drawer";

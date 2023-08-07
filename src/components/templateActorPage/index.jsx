@@ -1,11 +1,11 @@
-import React from "react"; // { useState, useEffect } redundant
-import MovieHeader from "../headerMovie";
+import React from "react";
+import HeaderActorList from "../headerActorList/index.jsx";
 import Grid from "@mui/material/Grid";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
-import { getActorImages } from "../../api/tmdb-api";
+import { getActorImages } from "../../api/tmdb-api"; 
 import { useQuery } from "react-query";
-import Spinner from '../spinner'
+import Spinner from '../spinner'; 
 
 const styles = {
   gridListRoot: {
@@ -20,24 +20,24 @@ const styles = {
 };
 
 const TemplateActorPage = ({ actor, children }) => {
-  const { data , error, isLoading, isError } = useQuery(
-    ["images", { id: actor.id }],
-    getActorImages
-  );
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
-  if (isError) {
-    return <h1>{error.message}</h1>;
-  }
-  const images = data.posters 
+    const { data, error, isLoading, isError } = useQuery(
+      ["images", { id: actor.id }],
+      getActorImages
+    );
+  
+    if (isLoading) {
+      return <Spinner />;
+    }
+  
+    if (isError) {
+      return <h1>{error.message}</h1>;
+    }
+  
+    const images = data.profiles; 
 
   return (
     <>
-      <MovieHeader actor={actor} />
-
+      <HeaderActorList title={actor.name} />
       <Grid container spacing={5} style={{ padding: "15px" }}>
         <Grid item xs={3}>
           <div sx={styles.gridListRoot}>
@@ -50,7 +50,7 @@ const TemplateActorPage = ({ actor, children }) => {
                 >
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${image.file_path}`}
-                    alt={image.poster_path}
+                    alt={image.file_path}
                   />
                 </ImageListItem>
               ))}
