@@ -60,9 +60,12 @@ export const getMovie = (args) => {
       });
   };
 
-      export const getUpcomingMovies = () => {
-        return fetch(         
-          `https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_KEY}`
+      export const getUpcomingMovies = (args) => {
+        console.log(args)
+        const [, pagePart] = args.queryKey;
+        const { currentPage } = pagePart;
+        return fetch(       
+          `https://api.themoviedb.org/3/movie/upcoming?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=${currentPage}`
         ).then((response) => {
           if (!response.ok) {
             throw new Error(response.json().message);
