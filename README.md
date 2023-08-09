@@ -5,8 +5,6 @@ __Name:__ John McDonald
 
 ## Features.
 
-[A bullet-point list of the features developed for the React SPA app (only new/modified ones for the Movies app),]
-
 + Upcoming Movies Page
 + Favourite Movies Page
 + Top-Rated Movies Page
@@ -18,10 +16,6 @@ __Name:__ John McDonald
 + StoryBook Support Actors
 
 ## Feature UI Designs.
-
-[ For each feature listed above, show a screenshot(s) of its UI layout (use appropriate magnification for accessibility). Include a caption with each image.]
-
-e.g. 
 
 #### Upcoming Movies.
 
