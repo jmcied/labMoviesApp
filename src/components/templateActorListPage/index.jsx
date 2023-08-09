@@ -18,7 +18,7 @@ const styles = {
   },
 };
 
-function PageTemplate({ actors, title }) {
+function PageTemplate({ actors, title, setCurrentPage }) {
     const [nameFilter, setNameFilter] = useState("");
     const [drawerOpen, setDrawerOpen] = useState(false); 
 
@@ -34,7 +34,7 @@ function PageTemplate({ actors, title }) {
       <>
         <Grid container sx={styles.root}>
           <Grid item xs={12}>
-            <HeaderActorList title={title} />
+            <HeaderActorList title={title} setCurrentPage={setCurrentPage}/>
           </Grid>
           <Grid item container spacing={5}>
             {displayedActors.map((actor) => (

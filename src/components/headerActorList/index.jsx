@@ -15,17 +15,32 @@ const styles = {
   },
 };
 
-const HeaderActorList = ({ title }) => {
+const HeaderActorList = ( props ) => {
+  const { title, setCurrentPage} = props;
+
+  const handlePageBack = () => { 
+    setCurrentPage((prevCurrentPage) => {
+      if (prevCurrentPage > 1) {
+        return prevCurrentPage - 1;
+      } else {
+        return prevCurrentPage;
+      }
+    })
+  };
+
+  const handlePageForward = () => {
+    setCurrentPage((prevCurrentPage) => prevCurrentPage + 1);
+  };
   return (
     <Paper component="div" sx={styles.root}>
-      <IconButton aria-label="go back">
+       <IconButton aria-label="previous page" onClick={handlePageBack}>
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
 
       <Typography variant="h4" component="h3">
         {title}
       </Typography>
-      <IconButton aria-label="go forward">
+      <IconButton aria-label="next page" onClick={handlePageForward}>
         <ArrowForwardIcon color="primary" fontSize="large" />
       </IconButton>
     </Paper>
