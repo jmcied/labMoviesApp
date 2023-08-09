@@ -18,7 +18,7 @@ const styles = {
   },
 };
 
-function MovieListPageTemplate({ movies, title, action }) {   // Object De-structing    
+function MovieListPageTemplate({ movies, title, action, setCurrentPage }) {   // Object De-structing    
                                                               // function MovieListPageTemplate( props ) {
                                                               // const movies = props.movies
                                                               // const title = props.title
@@ -46,7 +46,7 @@ function MovieListPageTemplate({ movies, title, action }) {   // Object De-struc
    <>
       <Grid container sx={styles.root}>
         <Grid item xs={12}>
-          <Header title={title} />
+          <Header title={title} setCurrentPage={setCurrentPage}/>
         </Grid>
         <Grid item container spacing={5}>
           <MovieList action={action} movies={displayedMovies} />
