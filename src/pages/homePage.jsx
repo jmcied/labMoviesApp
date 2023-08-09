@@ -7,7 +7,7 @@ import AddToFavouritesIcon from '../components/cardIcons/addToFavourites'
 
 const HomePage = (props) => {
   const [currentPage, setCurrentPage] = useState(1)
-  const { data, error, isLoading, isError } = useQuery(["pages", {currentPage: currentPage}],getMovies);
+  const { data, error, isLoading, isError } = useQuery(["discover", {currentPage: currentPage}],getMovies);
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
